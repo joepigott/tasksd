@@ -18,8 +18,8 @@ async fn main() {
     };
 
     let queue = Arc::new(Mutex::new(recover_queue(&storage).unwrap_or(TaskQueue::new())));
-    let scheduler = Scheduler::with_queue(Arc::clone(&queue));
-    let server = Server::with_queue(Arc::clone(&queue));
+    let mut scheduler = Scheduler::with_queue(Arc::clone(&queue));
+    let mut server = Server::with_queue(Arc::clone(&queue));
     let sigterm = Arc::new(AtomicBool::new(false));
 
     // handle termination signals
@@ -45,6 +45,33 @@ async fn main() {
 
         ctrlc_sigterm.store(true, Ordering::Relaxed);
     });
+
+    // scheduler thread
+    let sched_sigterm = Arc::clone(&sigterm);
+    let sched_thread = tokio::spawn(async move {
+        if let Err(e) = scheduler.run(Arc::clone(&sched_sigterm)).await {
+            piglog::error!("{e}");
+            return;
+        }
+    });
+
+    // server thread
+    let serv_thread = tokio::spawn(async move {
+        if let Err(e) = server.run().await {
+            piglog::error!("{e}");
+            return;
+        }
+    });
+
+    // wait on scheduler thread
+    if let Err(e) = sched_thread.await {
+        piglog::error!("{e}");
+    };
+
+    // server thread doesn't need to exit gracefully, so we can abort it
+    serv_thread.abort();
+
+    piglog::info!("Exited.");
 }
 
 fn recover_queue(storage: &str) -> Option<TaskQueue> {

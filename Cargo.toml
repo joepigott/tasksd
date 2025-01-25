@@ -1,0 +1,8 @@
+[package]
+name = "tsserver"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+taskscheduler = { git = "https://git.pigroy.xyz/pigroy/taskscheduler.git" }
+piglog = { git = "https://git.pigroy.xyz/pigroy/piglog.git" }

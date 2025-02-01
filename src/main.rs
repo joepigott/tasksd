@@ -1,11 +1,11 @@
 use piglog;
-use taskscheduler::vars;
-use taskscheduler::TaskQueue;
+use std::fs;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Arc, Mutex};
 use taskscheduler::scheduler::Scheduler;
 use taskscheduler::server::Server;
-use std::fs;
-use std::sync::{Arc, Mutex};
-use std::sync::atomic::{AtomicBool, Ordering};
+use taskscheduler::vars;
+use taskscheduler::TaskQueue;
 
 #[tokio::main]
 async fn main() {
@@ -17,7 +17,9 @@ async fn main() {
         }
     };
 
-    let queue = Arc::new(Mutex::new(recover_queue(&storage).unwrap_or(TaskQueue::new())));
+    let queue = Arc::new(Mutex::new(
+        recover_queue(&storage).unwrap_or(TaskQueue::new()),
+    ));
     let mut scheduler = Scheduler::with_queue(Arc::clone(&queue));
     let mut server = Server::with_queue(Arc::clone(&queue));
     let sigterm = Arc::new(AtomicBool::new(false));
@@ -26,13 +28,14 @@ async fn main() {
     let ctrlc_sigterm = Arc::clone(&sigterm);
     tokio::spawn(async move {
         let sigint = tokio::signal::ctrl_c();
-        let mut sigterm = match tokio::signal::unix::signal(tokio::signal::unix::SignalKind::terminate()) {
-            Ok(s) => s,
-            Err(e) => {
-                piglog::error!("{e}");
-                return;
-            }
-        };
+        let mut sigterm =
+            match tokio::signal::unix::signal(tokio::signal::unix::SignalKind::terminate()) {
+                Ok(s) => s,
+                Err(e) => {
+                    piglog::error!("{e}");
+                    return;
+                }
+            };
 
         tokio::select! {
             _ = sigint => {

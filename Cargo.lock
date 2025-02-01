@@ -959,7 +959,7 @@ dependencies = [
 [[package]]
 name = "taskscheduler"
 version = "0.1.0"
-source = "git+https://git.pigroy.xyz/pigroy/taskscheduler.git#713b5262998d1de5d48071e0e0c84d3c202e36fc"
+source = "git+https://git.pigroy.xyz/pigroy/taskscheduler.git#3ea381c5ac7b3b0de0920ea586639dbd5d09a732"
 dependencies = [
  "chrono",
  "piglog",
@@ -1086,7 +1086,7 @@ checksum = "e421abadd41a4225275504ea4d6566923418b7f05506fbc9c0fe86ba7396114b"
 
 [[package]]
 name = "tsserver"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "piglog",
  "serde",

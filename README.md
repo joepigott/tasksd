@@ -1,4 +1,4 @@
-# `tsserver`
+# `tasksd`
 
 This is the reference implementation for the 
 [`taskscheduler`](https://git.pigroy.xyz/pigroy/taskscheduler.git) server. The 

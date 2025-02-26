@@ -958,8 +958,8 @@ dependencies = [
 
 [[package]]
 name = "taskscheduler"
-version = "0.1.1"
-source = "git+https://git.pigroy.xyz/pigroy/taskscheduler.git#948e7182affe24fbc6eb6800beb510764a36bae9"
+version = "0.1.2"
+source = "git+https://git.pigroy.xyz/pigroy/taskscheduler.git#9ed635298c3a40d781c1ce93173f440f53e4af91"
 dependencies = [
  "chrono",
  "piglog",

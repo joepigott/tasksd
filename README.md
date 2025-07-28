@@ -17,4 +17,4 @@ The following environment variables must be set:
 ## API
 
 For a comprehensive list of API endpoints, please see the 
-[`taskscheduler` README](https://github.com/joepigott/taskscheduler/blob/master/README.md).
+[`taskscheduler` README](https://github.com/joepigott/taskscheduler/blob/master/README.md#api).

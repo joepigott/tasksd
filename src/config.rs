@@ -12,7 +12,7 @@ pub struct Config {
 
 /// Parses the configuration file into a `toml::Table` (a hashmap).
 pub fn config() -> Result<Config, String> {
-    let mut config_dir = PathBuf::from("/etc/taskscheduler");
+    let mut config_dir = PathBuf::from("/etc/tasksd");
     config_dir.push("config.toml");
 
     config_dir

@@ -309,7 +309,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "778e2ac28f6c47af28e4907f13ffd1e1ddbd400980a9abd7c8df189bf578a5ad"
 dependencies = [
  "libc",
- "windows-sys 0.59.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -1075,7 +1075,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys",
- "windows-sys 0.59.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -1313,6 +1313,7 @@ dependencies = [
 [[package]]
 name = "taskscheduler"
 version = "0.1.2"
+source = "git+https://github.com/joepigott/taskscheduler.git?branch=https#8b49921c8786f5803c0380d3f22a4981509f6c33"
 dependencies = [
  "chrono",
  "piglog",

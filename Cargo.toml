@@ -4,8 +4,9 @@ version = "0.1.2"
 edition = "2021"
 
 [dependencies]
-taskscheduler = { git = "https://git.joepigott.dev/pigroy/taskscheduler.git" }
+taskscheduler = { path = "../taskscheduler" }
 piglog = { git = "https://git.joepigott.dev/pigroy/piglog.git" }
 tokio = { version = "1.43.0", features = ["macros", "rt", "rt-multi-thread", "signal"] }
-serde = "1.0.217"
+serde = { version = "1.0.217", features = ["serde_derive"] }
 serde_json = "1.0.137"
+toml = "0.9.4"

@@ -6,7 +6,7 @@ version = "0.1.2"
 edition = "2021"
 
 [dependencies]
-taskscheduler = { git = "https://github.com/joepigott/taskscheduler.git" }
+taskscheduler = { git = "https://github.com/joepigott/taskscheduler.git", tag = "0.2" }
 piglog = { git = "https://git.joepigott.dev/pigroy/piglog.git" }
 tokio = { version = "1.43.0", features = ["macros", "rt", "rt-multi-thread", "signal"] }
 serde = { version = "1.0.217", features = ["serde_derive"] }

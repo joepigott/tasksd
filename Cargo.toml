@@ -1,5 +1,7 @@
 [package]
 name = "tasksd"
+authors = ["Joe Pigott <joe@joepigott.dev>"]
+description = "A server for `taskscheduler` the smart todo list"
 version = "0.1.2"
 edition = "2021"
 

@@ -1033,7 +1033,7 @@ dependencies = [
 [[package]]
 name = "taskscheduler"
 version = "0.1.2"
-source = "git+https://github.com/joepigott/taskscheduler.git?branch=https#956da716b7dce3966fb5da27c305270ac296c0fe"
+source = "git+https://github.com/joepigott/taskscheduler.git?tag=0.2#237fba11bc155619e6f5f513f0fcd0616a43e25f"
 dependencies = [
  "chrono",
  "piglog",
@@ -1045,7 +1045,7 @@ dependencies = [
 
 [[package]]
 name = "tasksd"
-version = "0.1.2"
+version = "0.2.0"
 dependencies = [
  "piglog",
  "serde",

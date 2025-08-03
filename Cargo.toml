@@ -2,7 +2,9 @@
 name = "tasksd"
 authors = ["Joe Pigott <joe@joepigott.dev>"]
 description = "A server for `taskscheduler` the smart todo list"
-version = "0.1.2"
+license = "GPL-3.0-only"
+repository = "https://github.com/joepigott/tasksd"
+version = "0.2"
 edition = "2021"
 
 [dependencies]

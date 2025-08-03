@@ -16,10 +16,10 @@ scheduler timeout in milliseconds. An example configuration could be:
 # /etc/tasksd/config.toml
 
 [server]
-address = 127.0.0.1:12345
+address = "127.0.0.1:12345"
 
 [scheduler]
-data_path = /var/lib/tasksd/tasks.json
+data_path = "/var/lib/tasksd/tasks.json"
 write_timeout = 10
 scheduler_timeout = 1000
 ```
@@ -64,12 +64,12 @@ their paths in the configuration file's `server` block. For example,
 # /etc/tasksd/config.toml
 
 [server]
-address = 127.0.0.1:12345
-cert_path = /path/to/cert.pem
-key_path = /path/to/privkey.pem
+address = "127.0.0.1:12345"
+cert_path = "/path/to/cert.pem"
+key_path = "/path/to/privkey.pem"
 
 [scheduler]
-data_path = /var/lib/tasksd/tasks.json
+data_path = "/var/lib/tasksd/tasks.json"
 write_timeout = 10
 scheduler_timeout = 1000
 ```
